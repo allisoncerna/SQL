@@ -1,0 +1,31 @@
+  --Create a grocery store database
+  
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, aisle INTEGER, price INTEGER);
+
+INSERT INTO store VALUES (1, "chocolate", 7, 1, 1.59);
+INSERT INTO store VALUES (2, "candy", 10, 1, 2.79);
+INSERT INTO store VALUES (3, "gum", 6, 1, 1.99);
+INSERT INTO store VALUES (4, "bananas", 10, 2, .89);
+INSERT INTO store VALUES (5, "blueberries", 7, 2, 2.99);
+INSERT INTO store VALUES (6, "blackberries", 5, 2, 1.67);
+INSERT INTO store VALUES (7, "raspberries", 7, 2, 3.99);
+INSERT INTO store VALUES (8, "strawberries", 9, 2, 4.89);
+INSERT INTO store VALUES (9, "mangos", 11, 3, 3.25);
+INSERT INTO store VALUES (10, "grapes", 8, 3, 10.24);
+INSERT INTO store VALUES (11, "vegetables", 18, 3, 4.67);
+INSERT INTO store VALUES (12, "frozen breakfast", 12, 4, 11.99);
+INSERT INTO store VALUES (13, "frozen dinners", 7, 4, 13.59);
+INSERT INTO store VALUES (14, "Ice cream", 15, 5, 10.89);
+INSERT INTO store VALUES (15, "juices", 8, 5, 6.79);
+
+ --display the database. 
+SELECT * FROM store;
+
+-- What items are in each aisle?
+SELECT name, aisle, quantity, price FROM store ORDER BY aisle;
+
+-- How many items are in each aisle and their perspective cost?
+SELECT aisle, SUM(quantity), SUM(price) FROM store GROUP BY aisle
+
+ -- What are the total number of items in store?
+SELECT SUM(quantity) FROM store;
